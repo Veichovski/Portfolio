@@ -224,18 +224,30 @@ export const projects: Project[] = [
   {
     title: 'Daylight',
     slug: createSlug('Daylight'),
-    description: 'An attempt to build an AR headset with a transparent waveguide. I had a problem with having limited screen real estate when working on my laptop and I thought a lightweight AR headset would be the ideal solution.',
+    description: 'An experimental AR headset project exploring transparent waveguide optics for extended screen real estate.',
     image: publicPath('Daylight/Daylight Render.webp'),
     category: ['hardware', 'mechanical'],
     skills: [
       { name: 'PCB Design', category: 'hardware' },
       { name: 'Micro OLED Displays', category: 'hardware' },
       { name: 'KiCad', category: 'hardware' },
+      { name: 'STM32', category: 'hardware' },
+      { name: 'Display Driver IC', category: 'hardware' },
+      { name: 'IMU', category: 'hardware' },
+      { name: 'Capacitive Touch', category: 'hardware' },
       { name: 'Optics Design', category: 'mechanical' },
+      { name: 'Waveguide Development', category: 'mechanical' },
       { name: 'Blender', category: 'mechanical' },
       { name: 'Onshape', category: 'mechanical' },
     ],
     year: 2023,
+    overview: [
+      {
+        description: 'An experimental AR headset project exploring transparent waveguide optics for extended screen real estate. The system features custom-designed PCBs including a main logic board with STM32 microcontroller, display driver IC, and 9-axis IMU for head tracking, along with a power supply unit, connector board, and touchpad interface. While the electronics and mechanical design progressed well, the waveguide optics proved too complex to develop independently, highlighting the challenges of optical system design.',
+        image: publicPath('Daylight/Daylight Render.webp'),
+        imagePosition: 'left',
+      },
+    ],
   },
   {
     title: 'Go-Kart V2',
