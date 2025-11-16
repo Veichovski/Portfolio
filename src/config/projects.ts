@@ -28,13 +28,24 @@ function createSlug(title: string): string {
 
 const BASE_URL = import.meta.env.BASE_URL;
 
+// Helper function to handle public paths in both dev and production
+export function publicPath(path: string): string {
+  // In production, remove /public/ prefix since files are copied to root
+  // In dev, keep /public/ prefix
+  const isDev = import.meta.env.DEV;
+  if (isDev) {
+    return `${BASE_URL}/public/${path}`;
+  }
+  return `${BASE_URL}/${path}`;
+}
+
 export const projects: Project[] = [
   {
     title: 'Omniframe',
     slug: createSlug('Omniframe'),
     description: 'Open-source e-ink IoT art frame with a novel solar charging system for up to infinite battery life. ',
-    image: `${BASE_URL}/public/Omniframe/placeholder.webp`,
-    video: `${BASE_URL}/public/Omniframe/omniframe.webm`,
+    image: publicPath('Omniframe/placeholder.webp'),
+    video: publicPath('Omniframe/omniframe.webm'),
     category: ['hardware', 'software', 'mechanical'],
     skills: [
       { name: 'PCB Design', category: 'hardware' },
@@ -63,7 +74,7 @@ export const projects: Project[] = [
     overview: [
       {
         description: 'I started building this e-ink frame back when there were almost no such products in the market and no open-source designs available. E-ink uses very little power so I wanted to challenge myself by developing a solar charging system into the frame in a way that is invisible to the user. The power architecture is the most advanced one in the whole field, and it makes this one of the few energy-independent consumer electronics devices in the world. ',
-        image: `${BASE_URL}/public/Omniframe/overview.jpg`,
+        image: publicPath('Omniframe/overview.jpg'),
         imagePosition: 'left',
       },
     ],
@@ -72,7 +83,7 @@ export const projects: Project[] = [
     title: 'RoboChess',
     slug: createSlug('RoboChess'),
     description: 'Voice-controlled chess board with robotic piece movement. A magnet moving inside the board make the pieces slide on the surface. \n\n Winner of RAD engineering showcase at NYU.',
-    image: `${BASE_URL}/public/RoboChess/RoboChess Render.webp`,
+    image: publicPath('RoboChess/RoboChess Render.webp'),
     category: ['hardware', 'software', 'mechanical'],
     skills: [
       { name: 'Arduino Mega 2560', category: 'hardware' },
@@ -91,7 +102,7 @@ export const projects: Project[] = [
     overview: [
       {
         description: 'This was my first project at NYU and my first big electromechanic project. I had never worked with stepper motors, sensors, bluetooth or voice-recognition technology before. It took plenty of learning about all these technologies and long days of work to get it running before the demo showcase.',
-        image: `${BASE_URL}/public/RoboChess/overview.jpg`,
+        image: publicPath('RoboChess/overview.jpg'),
         imagePosition: 'left',
       },
     ],
@@ -100,7 +111,7 @@ export const projects: Project[] = [
     title: 'Pocket Veila',
     slug: createSlug('Pocket Veila'),
     description: 'Anniversary gift for my girlfriend: a tiny e-ink device that each day displays a memory from the past year.',
-    image: `${BASE_URL}/public/Pocket Veila/cover.webp`,
+    image: publicPath('Pocket Veila/cover.webp'),
     category: ['hardware', 'software', 'mechanical'],
     skills: [
       { name: 'RP2040', category: 'hardware' },
@@ -120,7 +131,7 @@ export const projects: Project[] = [
     title: 'Vitrail',
     slug: createSlug('Vitrail'),
     description: 'My first audio engineering project: a battery-powered 60W bluetooth speaker with a walnut enclosure and magnetically attached front grill with an abstract design.',
-    image: `${BASE_URL}/public/Vitrail/placeholder.webp`,
+    image: publicPath('Vitrail/placeholder.webp'),
     category: ['hardware', 'mechanical'],
     skills: [
       { name: 'System Integration', category: 'hardware' },
@@ -141,7 +152,7 @@ export const projects: Project[] = [
     title: 'Lampiron',
     slug: createSlug('Lampiron'),
     description: 'Arguably the most over-engineered table lamp ever. It dims by changing the number of windows that are lit up.',
-    image: `${BASE_URL}/public/Lampiron/placeholder.webp`,
+    image: publicPath('Lampiron/placeholder.webp'),
     category: ['hardware', 'mechanical', 'software'],
     skills: [
       { name: 'PCB Design', category: 'hardware' },
@@ -162,7 +173,7 @@ export const projects: Project[] = [
     overview: [
       {
         description: 'I love the Flatiron Building and wanted to create a lamp in its shape. The shell is resin-printed and surface-finished to look realistic. To enhance the realism, each window features a diffuser and a small LED. A microcontroller drives over 500 LEDs individually to create a dimming effect where the number of windows lit up changes.',
-        image: `${BASE_URL}/public/Lampiron/overview.jpg`,
+        image: publicPath('Lampiron/overview.jpg'),
         imagePosition: 'left',
       },
     ],
@@ -171,7 +182,7 @@ export const projects: Project[] = [
     title: 'Hey Mac',
     slug: createSlug('Hey Mac'),
     description: "Miniature iMac G3 personal assistant and desk clock powered by an old iPhone Xs and Claude API.",
-    image: `${BASE_URL}/public/Hey Mac/placeholder.webp`,
+    image: publicPath('Hey Mac/placeholder.webp'),
     category: ['software'],
     skills: [
       { name: 'IOS Development', category: 'software' },
@@ -189,7 +200,7 @@ export const projects: Project[] = [
     title: 'Sunwhisper',
     slug: createSlug('Sunwhisper'),
     description: 'A simulation platform for discovering non-silicon solar chemistries through multi-stage analysis of molecular databases. The system evaluates synthesizability and other metrics, runs particle simulations to predict performance, and tunes against experimental data.',
-    image: `${BASE_URL}/public/Sunwhisper/placeholder.webp`,
+    image: publicPath('Sunwhisper/placeholder.webp'),
     category: ['software'],
     skills: [
       { name: 'Python', category: 'software' },
@@ -214,7 +225,7 @@ export const projects: Project[] = [
     title: 'Daylight',
     slug: createSlug('Daylight'),
     description: 'An attempt to build an AR headset with a transparent waveguide. I had a problem with having limited screen real estate when working on my laptop and I thought a lightweight AR headset would be the ideal solution.',
-    image: `${BASE_URL}/public/Daylight/Daylight Render.webp`,
+    image: publicPath('Daylight/Daylight Render.webp'),
     category: ['hardware', 'mechanical'],
     skills: [
       { name: 'PCB Design', category: 'hardware' },
@@ -230,7 +241,7 @@ export const projects: Project[] = [
     title: 'Go-Kart V2',
     slug: createSlug('Go-Kart V2'),
     description: 'Improved version of a simpler kart I made in 2016. Built on a new chassis, and had a custom suspension system and improved steering.',
-    image: `${BASE_URL}/public/Go-Kart V2/Go kart V2 nobg.webp`,
+    image: publicPath('Go-Kart V2/Go kart V2 nobg.webp'),
     category: ['mechanical'],
     skills: [
       { name: 'Mechanical Design', category: 'mechanical' },
@@ -242,7 +253,7 @@ export const projects: Project[] = [
     overview: [
       {
         description: 'Building on the experience from my first go-kart, I designed and fabricated a second iteration with significant improvements. This version featured suspension, improved steering geometry, and a more robust frame design. \n\n There are few options in Finland for affordable go-kart parts, so most of the parts were custom-made or sourced from used mopeds and ATVs.',
-        image: `${BASE_URL}/public/Go-Kart V2/20190707_134948.webp`,
+        image: publicPath('Go-Kart V2/20190707_134948.webp'),
         imagePosition: 'left',
       },
     ],
